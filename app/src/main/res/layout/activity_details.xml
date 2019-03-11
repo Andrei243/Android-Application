@@ -6,4 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".DETAILS">
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:background="@android:color/transparent"
+        android:layout_width="86dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
 </androidx.constraintlayout.widget.ConstraintLayout>

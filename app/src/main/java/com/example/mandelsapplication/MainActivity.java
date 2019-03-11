@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.JsonReader;
 import android.util.JsonWriter;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -29,10 +30,9 @@ import java.util.List;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
 
-public class LIST extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
-    private Button button;
     private RecyclerView recyclerView;
     private EditText editText;
     List<Pair<String,String>> list;
@@ -43,15 +43,15 @@ public class LIST extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-       /* JSONObject jsonObject=new JSONObject();
+        JSONObject jsonObject=new JSONObject();
         try {
             jsonObject.put("email", "andrei243.nma@gmail.com");
         }
         catch(Exception e){
-            Log.wtf(TAG,"Nu s-a creat obiectul Json");
+            Log.d(TAG,"Nu s-a creat obiectul Json");
         }
         String data=jsonObject.toString();
-        recyclerView = (RecyclerView)findViewById(R.id.recycle);
+        //recyclerView = (RecyclerView)findViewById(R.id.recycle);
 
         list = new ArrayList<Pair<String, String>>();
         URL url;
@@ -65,7 +65,7 @@ public class LIST extends AppCompatActivity {
            connection.setDoOutput(true);
        }
        catch(Exception e){
-           Log.wtf("URL gresit",e.toString());
+           Log.d("URL gresit",e.toString());
 
 
        }
@@ -122,9 +122,23 @@ public class LIST extends AppCompatActivity {
 
 
        }
-*/
+
         TextView textView=(TextView)findViewById(R.id.textView);
        textView.setText("ABSFAJFSAGF");
-       //setContentView(R.layout.activity_details);
+       ImageButton imageButton = (ImageButton)findViewById(R.id.imageButton3);
+
+       imageButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+                setContentView(R.layout.activity_details);
+
+           }
+       });
+
+    }
+    public void buton_apasat(View view){
+
+
+
     }
 }
