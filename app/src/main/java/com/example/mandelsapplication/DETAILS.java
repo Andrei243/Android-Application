@@ -13,13 +13,7 @@ public class DETAILS extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        ImageButton imageButton1 = (ImageButton)findViewById(R.id.imageButton);
-        imageButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            setContentView(R.layout.activity_main);
-            }
-        });
+
 
 
     }

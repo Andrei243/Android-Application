@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.JsonReader;
 import android.util.JsonWriter;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        JSONObject jsonObject=new JSONObject();
+       /* JSONObject jsonObject=new JSONObject();
         try {
             jsonObject.put("email", "andrei243.nma@gmail.com");
         }
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         //Log.wtf(TAG,"Nu s-a rescris mesajul ");
 
 
-       }
+       }*/
 
         TextView textView=(TextView)findViewById(R.id.textView);
        textView.setText("ABSFAJFSAGF");
@@ -130,15 +131,12 @@ public class MainActivity extends AppCompatActivity {
        imageButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-                setContentView(R.layout.activity_details);
+               Intent i =new Intent(getApplicationContext(),FILTER.class);
+               startActivity(i);
 
            }
        });
 
     }
-    public void buton_apasat(View view){
 
-
-
-    }
 }
