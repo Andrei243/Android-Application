@@ -9,11 +9,14 @@ import android.os.Bundle;
 import android.util.JsonReader;
 import android.util.JsonWriter;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
 
 import org.json.JSONObject;
 
@@ -42,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Toolbar myToolbar=(Toolbar) findViewById(R.id.main_toolbar);
+        setSupportActionBar(myToolbar);
 
        /* JSONObject jsonObject=new JSONObject();
         try {
@@ -126,16 +130,37 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textView=(TextView)findViewById(R.id.textView);
        textView.setText("ABSFAJFSAGF");
-       ImageButton imageButton = (ImageButton)findViewById(R.id.imageButton3);
+//       ImageButton imageButton = (ImageButton)findViewById(R.id.imageButton3);
+//
+//       imageButton.setOnClickListener(new View.OnClickListener() {
+//           @Override
+//           public void onClick(View v) {
+//               Intent i =new Intent(getApplicationContext(),FILTER.class);
+//               startActivity(i);
+//
+//           }
+//       });
 
-       imageButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent i =new Intent(getApplicationContext(),FILTER.class);
-               startActivity(i);
+    }
 
-           }
-       });
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main,menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.imageButton3:
+                Intent i =new Intent(getApplicationContext(),FILTER.class);
+                startActivity(i);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
 
     }
 
