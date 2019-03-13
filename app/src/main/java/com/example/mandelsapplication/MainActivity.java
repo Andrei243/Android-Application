@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar myToolbar=(Toolbar) findViewById(R.id.main_toolbar);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(myToolbar);
 
        /* JSONObject jsonObject=new JSONObject();
@@ -127,20 +127,6 @@ public class MainActivity extends AppCompatActivity {
 
 
        }*/
-
-        TextView textView=(TextView)findViewById(R.id.textView);
-       textView.setText("ABSFAJFSAGF");
-//       ImageButton imageButton = (ImageButton)findViewById(R.id.imageButton3);
-//
-//       imageButton.setOnClickListener(new View.OnClickListener() {
-//           @Override
-//           public void onClick(View v) {
-//               Intent i =new Intent(getApplicationContext(),FILTER.class);
-//               startActivity(i);
-//
-//           }
-//       });
-
     }
 
     @Override
@@ -153,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
-            case R.id.imageButton3:
+            case R.id.imageButtonMain:
                 Intent i =new Intent(getApplicationContext(),FILTER.class);
                 startActivity(i);
                 return true;
