@@ -1,20 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/titluel"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="25sp"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="4dp"
+        android:text="Titlu"
+        android:textSize="25sp" />
+
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="33dp"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/star_on" />
 
     <TextView
         android:id="@+id/descel"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="13sp"/>
-</LinearLayout>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="42dp"
+        android:text="Descriere"
+        android:textSize="13sp" />
+
+
+</RelativeLayout>

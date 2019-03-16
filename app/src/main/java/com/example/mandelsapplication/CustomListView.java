@@ -11,15 +11,15 @@ import java.util.ArrayList;
 
 public class CustomListView extends ListActivity {
     static ArrayList<Pair<String,String>> elemente;
+    static ArrayList<Boolean> elementeBool;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         elemente=new ArrayList<>();
-       // elemente.add(new Pair<String,String>("Washington","DC"));
-        //elemente.add(new Pair<String,String>("New York","Tenerife"));
-        setListAdapter(new CustomArrAdapter(this,elemente));
+
+        setListAdapter(new CustomArrAdapter(this,elemente,elementeBool));
 
     }
 

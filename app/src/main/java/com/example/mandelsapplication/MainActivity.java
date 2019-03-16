@@ -50,10 +50,13 @@ public class MainActivity extends AppCompatActivity {
 
         listView=(ListView)findViewById(R.id.listdim);
        ArrayList <Pair<String,String>> elemente=new ArrayList<>();
-       elemente.add(new Pair<String,String>("New York","Tenerife"));
+       ArrayList<Boolean> elementeBool=new ArrayList<>();
+       elemente.add(new Pair<String, String>("New York","Tenerife"));
+       elementeBool.add(true);
 
-       elemente.add(new Pair<String,String>("Washington","DC"));
-       listAdapter = new CustomArrAdapter(this, elemente);
+        elemente.add(new Pair<String, String>("Washington","DC"));
+        elementeBool.add(false);
+       listAdapter = new CustomArrAdapter(this, elemente,elementeBool);
 
        listView.setAdapter(listAdapter);
 
