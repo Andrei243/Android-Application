@@ -1,7 +1,7 @@
 package com.example.mandelsapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.util.Pair;
+import android.util.Pair;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -12,9 +12,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 
@@ -36,10 +38,8 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-
-    private RecyclerView recyclerView;
-    private EditText editText;
-    List<Pair<String,String>> list;
+    private ListView listView;
+    private CustomArrAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,85 +48,15 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(myToolbar);
 
-       /* JSONObject jsonObject=new JSONObject();
-        try {
-            jsonObject.put("email", "andrei243.nma@gmail.com");
-        }
-        catch(Exception e){
-            Log.d(TAG,"Nu s-a creat obiectul Json");
-        }
-        String data=jsonObject.toString();
-        //recyclerView = (RecyclerView)findViewById(R.id.recycle);
+        listView=(ListView)findViewById(R.id.listdim);
+       ArrayList <Pair<String,String>> elemente=new ArrayList<>();
+       elemente.add(new Pair<String,String>("New York","Tenerife"));
 
-        list = new ArrayList<Pair<String, String>>();
-        URL url;
-        HttpsURLConnection connection=null;
-       try {
-            url = new URL("https://internship-2019.herokuapp.com/api-user-get");
-            connection= (HttpsURLConnection) url.openConnection();
-           connection.setRequestProperty("Content-Type","application/json");
+       elemente.add(new Pair<String,String>("Washington","DC"));
+       listAdapter = new CustomArrAdapter(this, elemente);
 
-           connection.setRequestMethod("POST");
-           connection.setDoOutput(true);
-       }
-       catch(Exception e){
-           Log.d("URL gresit",e.toString());
+       listView.setAdapter(listAdapter);
 
-
-       }
-
-        DataOutputStream wr=null;
-       try{
-           wr=new DataOutputStream(connection.getOutputStream());
-           wr.writeBytes(data);
-         //  wr.flush();
-         //  wr.close();
-
-       }catch(Exception e){
-
-           StackTraceElement[] stackTraceElement=e.getStackTrace();
-           for (StackTraceElement stk:stackTraceElement){
-               Log.d(TAG,stk.toString());
-           }
-           //Log.wtf(TAG,"Nu s-a trimis mesajul");
-
-       }
-       //finally {
-          // try {
-
-
-          // if(connection!=null) {
-          //     wr.close();
-          // }
-          // }catch(Exception e){
-
-
-          // }
-      // }
-        InputStream inputStream=null;
-       try {
-           inputStream = connection.getInputStream();
-       }catch(Exception e){
-          //  Log.wtf(TAG,"Nu s-a primit mesajul");
-       }
-
-        BufferedReader in=null;
-       String inputLine;
-       StringBuilder body=new StringBuilder();
-       try{
-           in=new BufferedReader(new InputStreamReader(inputStream));
-           body=new StringBuilder();
-           while( (inputLine=in.readLine())!=null ){
-               body.append(inputLine);
-
-           }
-           in.close();
-       }
-       catch(Exception e){
-        //Log.wtf(TAG,"Nu s-a rescris mesajul ");
-
-
-       }*/
     }
 
     @Override
