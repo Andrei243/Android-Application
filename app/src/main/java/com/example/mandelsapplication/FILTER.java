@@ -20,7 +20,16 @@ public class FILTER extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.filter_toolbar);
+        myToolbar.setTitle("Filter");
+        myToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setSupportActionBar(myToolbar);
+        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         Button button=(Button)findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -30,7 +39,8 @@ public class FILTER extends AppCompatActivity {
                 EditText windinput=(EditText)findViewById(R.id.WindEdit);
                 String country=countryinput.getText().toString();
                 String windString=windinput.getText().toString();
-                Integer wind= Integer.parseInt(windString);
+                Integer wind=null;
+                if(!windString.equals(""))wind=Integer.parseInt(windString);
 
                 TextView textView=(TextView)findViewById(R.id.textView2);
                 textView.setText((String)(country+" "+windString));
@@ -40,25 +50,4 @@ public class FILTER extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.filter,menu);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        return true;
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch(item.getItemId()){
-            case R.id.imageButtonFilter:
-                Intent i =new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(i);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
-
-    }
 }

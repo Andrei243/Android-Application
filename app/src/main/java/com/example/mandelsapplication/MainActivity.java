@@ -1,48 +1,31 @@
 package com.example.mandelsapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.util.Pair;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.util.Log;
+import android.util.Pair;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.JsonReader;
-import android.util.JsonWriter;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
-
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.security.cert.Certificate;
 import java.util.ArrayList;
-import java.util.List;
 
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLPeerUnverifiedException;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private ListView listView;
     private CustomArrAdapter listAdapter;
+    private ArrayList<Boolean> elementeBool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG,"Merg");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.main_toolbar);
@@ -50,14 +33,39 @@ public class MainActivity extends AppCompatActivity {
 
         listView=(ListView)findViewById(R.id.listdim);
        ArrayList <Pair<String,String>> elemente=new ArrayList<>();
-       ArrayList<Boolean> elementeBool=new ArrayList<>();
+       elementeBool=new ArrayList<>();
        elemente.add(new Pair<String, String>("New York","Tenerife"));
        elementeBool.add(true);
 
         elemente.add(new Pair<String, String>("Washington","DC"));
         elementeBool.add(false);
        listAdapter = new CustomArrAdapter(this, elemente,elementeBool);
+        listView.setClickable(true);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+              long viewID=view.getId();
+              if(viewID == R.id.imageButton){
+                  ImageButton imageButton=(ImageButton)view;
 
+                  if(elementeBool.get(position)){
+                      elementeBool.set(position,false);
+                      imageButton.setImageResource(R.drawable.star_off);
+
+                  }else{
+                      elementeBool.set(position,true);
+                      imageButton.setImageResource(R.drawable.star_on);
+
+                  }
+
+              }else {
+                  Log.d(TAG,"Am ajuns");
+
+                  Intent i = new Intent(view.getContext(), DETAILS.class);
+                  MainActivity.this.startActivity(i);
+              }
+            }
+        });
        listView.setAdapter(listAdapter);
 
     }

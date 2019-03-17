@@ -4,14 +4,14 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/titludet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="25sp"/>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/descdet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"

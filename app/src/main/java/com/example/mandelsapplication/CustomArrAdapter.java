@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class CustomArrAdapter extends ArrayAdapter<Pair<String,String>> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent){
+        final ViewGroup v2=parent;
         LayoutInflater inflater=(LayoutInflater)context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowview=inflater.inflate(R.layout.customlistviewelement,parent,false);
@@ -45,15 +47,7 @@ public class CustomArrAdapter extends ArrayAdapter<Pair<String,String>> {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(elementeBool.get(position)){
-                    elementeBool.set(position,false);
-                    imageButton.setImageResource(R.drawable.star_off);
-
-                }else{
-                    elementeBool.set(position,true);
-                    imageButton.setImageResource(R.drawable.star_on);
-
-                }
+                ((ListView) v2).performItemClick(v,position,0);
             }
         });
 
